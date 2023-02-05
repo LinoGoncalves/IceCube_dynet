@@ -1,0 +1,20 @@
+name: Run Kaggle Notebook
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run_notebook:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Run Kaggle Notebook
+      uses: Kaggle/python@1.0.0
+      with:
+        python-version: 3.8
+        script: "graphnet-baseline-submission.ipynb"
